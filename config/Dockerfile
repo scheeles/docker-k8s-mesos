@@ -9,4 +9,4 @@ RUN set -x \
          netcat \
     && rm -rf /var/lib/apt/lists/*
 COPY ./config.js /var/lib/ghost/config.js
-HEALTHCHECK CMD curl --fail http://localhost:2368/ || exit 1
+HEALTHCHECK --interval=5s --timeout=5s CMD curl --fail http://localhost:2368/ || exit 1

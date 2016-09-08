@@ -10,4 +10,4 @@ RUN set -x \
     && rm -rf /var/lib/apt/lists/*
 COPY ./config.js /var/lib/ghost/config.js
 RUN sed -i 's,<header class="main-header ,<header style="background: red;" class="main-header ,' /usr/src/ghost/content/themes/casper/index.hbs
-HEALTHCHECK CMD curl --fail http://localhost:2368/ || exit 1
+HEALTHCHECK --interval=5s --timeout=5s CMD curl --fail http://localhost:2368/ || exit 1
